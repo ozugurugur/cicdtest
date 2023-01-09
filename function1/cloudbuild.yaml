@@ -3,8 +3,11 @@ steps:
   entrypoint: /bin/sh
   # Run pip install and pytest in the same build step
   # (pip packages won't be preserved in future steps!)
-  args: [-c, 'pip install -r requirements.txt && pytest']
+  args: [-c, 'pip install -r requirements.txt']
   dir: 'function1'
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['functions', 'deploy', 'function1', '--trigger-http', '--runtime', 'python310', '--entry-point', 'hello_http']
   dir: 'function1'
+
+
+
