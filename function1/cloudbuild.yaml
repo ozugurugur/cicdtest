@@ -1,0 +1,24 @@
+steps:
+
+
+
+# - name: 'docker.io/library/python:3.10'
+#   entrypoint: /bin/sh
+#   # Run pip install and pytest in the same build step
+#   # (pip packages won't be preserved in future steps!)
+#   args: [-c, 'pip install -r requirements.txt']
+#   dir: 'function1'
+
+  #cloud function ci cd
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['functions', 'deploy', 'function1', '--trigger-http',
+         '--runtime', 'python310', '--entry-point', 'hello_http',
+         '--region','us-central1','--gen2','--run-service-account','cloud-functions@denem-344611.iam.gserviceaccount.com',
+         '--max-instances','2','--memory','128M',
+         '--timeout','3600']
+  dir: 'function1/cloud-function'
+
+
+
+  #airflow ci/cd
+

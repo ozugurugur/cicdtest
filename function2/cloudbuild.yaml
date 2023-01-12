@@ -5,9 +5,13 @@ steps:
   # (pip packages won't be preserved in future steps!)
   args: [-c, 'pip install -r requirements.txt']
   dir: 'function1'
+
+  #cloud function ci cd
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['functions', 'deploy', 'function1', '--trigger-http', '--runtime', 'python310', '--entry-point', 'hello_http']
   dir: 'function1'
 
 
+
+  #airflow ci/cd
 
