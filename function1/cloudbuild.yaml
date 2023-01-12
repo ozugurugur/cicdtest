@@ -11,7 +11,7 @@ steps:
 
   #cloud function ci cd
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['functions', 'deploy', 'function1','--gen2', '--trigger-http',
+  args: ['functions', 'deploy', 'cicd-function1','--gen2', '--trigger-http',
          '--runtime', 'python310', '--entry-point', 'hello_http',
          '--region','us-central1','--run-service-account','cloud-functions@denem-344611.iam.gserviceaccount.com',
          '--max-instances','2','--memory','128M',
@@ -19,6 +19,6 @@ steps:
   dir: 'function1/cloud-function'
 
 
-
+#gcloud functions deploy function2 --gen2 --trigger-http --runtime=python310 --entry-point=hello_http --region=us-central1 --run-service-account=cloud-functions@denem-344611.iam.gserviceaccount.com --max-instances=2 --memory=128M --timeout=3600
   #airflow ci/cd
 
