@@ -1,4 +1,4 @@
-Steps:
+steps:
 - name: gcr.io/cloud-builders/gsutil
   args:
     - '-m'
