@@ -5,6 +5,7 @@ steps:
     - 'rsync'
     - '-d'
     - '-r'
+    - '-u'
     - 'dags'
     - 'gs://${_GCS_BUCKET}/dags'
   dir: ''
