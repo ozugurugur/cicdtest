@@ -13,7 +13,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['functions', 'deploy', 'cicd-function1','--gen2', '--trigger-http',
          '--runtime', 'python310', '--entry-point', 'hello_http',
-         '--region','us-central1','--run-service-account','cloud-functions@denem-344611.iam.gserviceaccount.com',
+         '--region','us-central1','--run-service-account','${_SERVICE_ACCOUNT}',
          '--max-instances','2','--memory','128Mi',
          '--timeout','3600']
   dir: 'function1/cloud-function'
